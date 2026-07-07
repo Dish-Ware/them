@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Void</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            overflow: hidden;
+        }
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; 
+            opacity: 0.3; 
+            
+            /* BG */
+            background-image: url('bg.png'); 
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain; 
+        }
+        .dont-delete-me {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000; 
+            z-index: 2; 
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 
+    ======================================================================
+    37.2431° N, 115.7930° W
+    ======================================================================
+    -->
+
+    <!-- BG -->
+    <div class="background"></div>
+
+    <!-- Inspect/Delete -->
+    <div class="dont-delete-me"></div>
+
+    <audio id="them" loop>
+        <source src="noise.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const audio = document.getElementById('them');
+        
+        // Noise loop script 
+        document.addEventListener('click', () => {
+            audio.volume = 1.0;
+            audio.play().catch(err => console.log("Interaction required."));
+        });
+    </script>
+
+</body>
+</html>
